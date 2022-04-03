@@ -4,7 +4,7 @@ This is a simple application written in Django for Global Talents Hub.
 The application has two models. Rental and Reservation which are belong to a hotel.
 The main goal is to show the previous reservation dates of a Rental instance.
 
-## How to use:
+## How to use
 
 You may Install Python, create a Virtualenv after cloning the project and change the source to it:
 brew install python3 python3-pip
