@@ -7,19 +7,19 @@ The main goal is to show the previous reservation dates of a Rental instance.\
 ## How to Install
 
 You may Install Python, create a Virtualenv after cloning the project and change the source to it:\
-brew install python3 python3-pip\
-pip3 install virtualenv\
-virtualenv venv\
-source venv/bin/activate\
+brew install python3 python3-pip \
+pip3 install virtualenv \
+virtualenv venv \
+source venv/bin/activate \
 
-Install the required packages:\
-pip install -r requirements.txt\
+Install the required packages: \
+pip install -r requirements.txt \
 
-Create the dataase, run test and run server\
-pyhton manage.py makemigrations\
-python manage.py migrate\
-python manage.py test\
-python manage.py runserver 0.0.0.0:8000\
+Create the dataase, run test and run server \
+pyhton manage.py makemigrations \
+python manage.py migrate \
+python manage.py test \
+python manage.py runserver 0.0.0.0:8000 \
 
 ## How to Test
-Call the get method of http://127.0.0.1:8000/api/v1/reservation to see the result\
+Call the get method of http://127.0.0.1:8000/api/v1/reservation to see the result \
