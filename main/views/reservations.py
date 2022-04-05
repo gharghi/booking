@@ -11,6 +11,9 @@ from main.serializers import ReservationsSerializer
 class ReservationsView(APIView):
     @permission_classes([IsAuthenticated])
     def get(self, *args, **kwargs):
+        """
+        Return: Serialized list of reservations with status code of 200.
+        """
         try:
             reservations = Reservation.objects.select_related('rental')
             serializer = ReservationsSerializer(reservations, many=True)

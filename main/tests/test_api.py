@@ -10,6 +10,11 @@ from rest_framework_jwt.settings import api_settings
 
 
 class AccountsTestCase(TestCase):
+    """
+    Test the View and Serializer.
+    Call the reservation method.
+    Return: List of the observations.
+    """
 
     def setUp(self):
         user = User.objects.create_user(
