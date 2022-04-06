@@ -15,7 +15,8 @@ class ReservationsView(APIView):
         Return: Serialized list of reservations with status code of 200.
         """
         try:
-            reservations = Reservation.objects.select_related('rental')
+            reservations = Reservation.objects.raw(
+                "select b.id,b.rental_id,b.checkin,b.checkout,(select t.id from main_reservation t where t.rental_id=b.rental_id and t.checkin < b.checkin order by t.checkin desc limit 1) as 'previous_reservation' from main_reservation b")
             serializer = ReservationsSerializer(reservations, many=True)
             return Response(status=status.HTTP_200_OK, data=serializer.data)
 

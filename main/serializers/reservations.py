@@ -7,6 +7,11 @@ class ReservationsSerializer(serializers.ModelSerializer):
     """
     Serialize the Reservation Model
     """
+    previous_reservation = serializers.SerializerMethodField()
+
+    def get_previous_reservation(self, obj):
+        return obj.previous_reservation
+
     class Meta:
         model = Reservation
         fields = [
