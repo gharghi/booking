@@ -8,7 +8,7 @@ from main.models import Rental, Reservation
 class ModelTestCase(TestCase):
     """
     Test the database connection and models.
-    Creates two objects and check if the model puts the first as the second's previous reservation.
+    Creates an object.
     """
     def setUp(self):
         self.name = ''.join(random.choices(string.ascii_lowercase, k=10))

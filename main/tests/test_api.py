@@ -1,4 +1,3 @@
-import json
 import random
 import string
 from unittest import TestCase
@@ -7,6 +6,8 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APIClient
 from rest_framework_jwt.settings import api_settings
+
+from main.services.reservations import get_reservations
 
 
 class AccountsTestCase(TestCase):
@@ -30,14 +31,14 @@ class AccountsTestCase(TestCase):
         self.token = token
 
     def test_get_reservations(self):
+        reservations = get_reservations()
+        self.assertIn('previous_reservation', reservations.data[0])
+
+    def test_reservations_view(self):
         client = APIClient()
         client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
-
         response = client.get(
             '/api/v1/reservation',
             format='json'
         )
-
-        result = json.loads(response.content)
-        print(result)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
